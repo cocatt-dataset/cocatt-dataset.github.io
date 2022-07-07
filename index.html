@@ -204,11 +204,15 @@
         <p> Our dataset is grouped by participant ids. For each participant, we collect four sequences of manual drive attention data 
           and two sequences of autopilot drive attention data. Along with driver attention heatmaps, CoCAtt contains RGB, depth and 
           segmentation maps for each frame. The details of the dataset folder structure is as follows:
-        <pre><code>[participant_id]
-            --xx
-            ----xx
-            ------xx
-        
+        <pre><code>[participant_id]/
+--[autopilot/manual_drive]/
+----[sequence_id]/
+------video.mp4
+------[images_4hz](RGB frames)/    
+------[depths_4hz](depth frames)/  
+------[seg_4hz](segmentation maps)/  
+------[heatmap_4hz_20_eye_tracker](driver attention data collected by eye tracker)/  
+------[heatmap_4hz_20_gaze_recorder](driver attention data collected by webcam)/  
         </code></pre>
       </div>
     </section>
