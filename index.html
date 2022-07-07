@@ -203,8 +203,9 @@
         <h2 class="title is-centered has-text-centered">Dataset Folder Structure</h2>
         <p> Our dataset is grouped by participant ids. For each participant, we collect four sequences of manual drive attention data 
           and two sequences of autopilot drive attention data. Along with driver attention heatmaps, CoCAtt contains RGB, depth and 
-          segmentation maps for each frame. To make it easier to parse, we provide one dataloader example <a href="./scripts/example_datalader.py">script</a> for PyTorch framework. 
-          The details of the dataset folder structure is as follows:
+          segmentation maps for each frame. To make it easier to parse, we provide one dataloader example 
+          <a href="https://raw.githubusercontent.com/cocatt-dataset/cocatt-dataset.github.io/main/scripts/example_dataloader.py">script</a> 
+          for PyTorch framework. The details of the dataset folder structure is as follows: </p>
         <pre><code>-[participant_id]/
 ---[autopilot/manual_drive]/
 -----[sequence_id]/
@@ -216,6 +217,9 @@
 -------[heatmap_4hz_20_eye_tracker](driver attention data collected by eye tracker)/  
 -------[heatmap_4hz_20_gaze_recorder](driver attention data collected by webcam)/  
         </code></pre>
+        <p> Note that we only use webcam device to collect manual-drive attention data. Besides, we only provide depth map in manual drive mode. 
+          Depth and segmentation maps are captured with the CARLA depth and Semantic Segmentation Sensor. Please checkout 
+          <a href="https://carla.readthedocs.io/en/latest/ref_sensors/#semantic-segmentation-camera">CARLA sensor documentation page</a> for parsing.
       </div>
     </section>
     
