@@ -203,16 +203,18 @@
         <h2 class="title is-centered has-text-centered">Dataset Folder Structure</h2>
         <p> Our dataset is grouped by participant ids. For each participant, we collect four sequences of manual drive attention data 
           and two sequences of autopilot drive attention data. Along with driver attention heatmaps, CoCAtt contains RGB, depth and 
-          segmentation maps for each frame. The details of the dataset folder structure is as follows:
-        <pre><code>[participant_id]/
---[autopilot/manual_drive]/
-----[sequence_id]/
-------video.mp4
-------[images_4hz](RGB frames)/    
-------[depths_4hz](depth frames)/  
-------[seg_4hz](segmentation maps)/  
-------[heatmap_4hz_20_eye_tracker](driver attention data collected by eye tracker)/  
-------[heatmap_4hz_20_gaze_recorder](driver attention data collected by webcam)/  
+          segmentation maps for each frame. To make it easier to parse, we provide one dataloader example <a href="./scripts/example_datalader.py">script</a> for PyTorch framework. 
+          The details of the dataset folder structure is as follows:
+        <pre><code>-[participant_id]/
+---[autopilot/manual_drive]/
+-----[sequence_id]/
+-------video.mp4
+-------final_labels.txt (contains per-timestamp information, including driver distraction state, car speed, acceleration, location, rotation, throttle, steer, brake, reverse gear, collision, lane_invasion)/
+-------[images_4hz](RGB frames)/    
+-------[depths_4hz](depth frames)/  
+-------[seg_4hz](segmentation maps)/  
+-------[heatmap_4hz_20_eye_tracker](driver attention data collected by eye tracker)/  
+-------[heatmap_4hz_20_gaze_recorder](driver attention data collected by webcam)/  
         </code></pre>
       </div>
     </section>
